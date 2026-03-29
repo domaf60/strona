@@ -1,0 +1,27 @@
+{
+  "name": "NDES1GN - Profesjonalny Grafik",
+  "short_name": "NDES1GN",
+  "description": "Profesjonalne usługi graficzne: projektowanie stron internetowych, materiałów do druku i identyfikacji wizualnej",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#e0ddcf",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["design", "business"],
+  "lang": "pl"
+}
+

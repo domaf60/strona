@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: ndesign-portfolio
+    ports:
+      - "8086:8086"
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

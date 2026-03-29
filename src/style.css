@@ -1,0 +1,280 @@
+/* style.css - FINALNA WERSJA (Wszystkie poprawki) */
+
+/* 1. RESET I ZMIENNE KOLORYSTYCZNE */
+:root {
+    --bg-main: #000000;         /* Tło strony: Czerń */
+    --glass-base: #474448;      /* Tło kart: Szary */
+    --accent: #e0ddcf;          /* Akcent: Beżowy */
+    
+    --text-main: #f5f5f7;       /* Tekst jasny */
+    --text-secondary: #b0aeb5;  /* Tekst szary */
+    
+    --radius-l: 24px;
+    --radius-m: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom right, #1c1c1e, #000000);
+}
+
+/* 2. NAWIGACJA */
+nav {
+    background-color: rgba(28, 28, 30, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 20px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(224, 221, 207, 0.1);
+    flex-shrink: 0;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- LOGIKA FLAGI (Kręci się tylko obrazek) --- */
+.flip-icon {
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px; 
+}
+
+/* Stylujemy sam obrazek wewnątrz linku */
+.flip-icon img {
+    display: block;
+    width: 24px;
+    /* Tu jest podciągnięcie do góry o które prosiłeś */
+    margin-top: -8px; 
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Po najechaniu na link, obróć TYLKO obrazek */
+.flip-icon:hover img {
+    transform: rotateY(360deg);
+}
+
+/* 3. GŁÓWNY KONTENER */
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto; 
+    padding: 50px;
+    
+    /* Szare szkło */
+    background-color: rgba(71, 68, 72, 0.6); 
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6); 
+
+    border-radius: var(--radius-l);
+    text-align: center;
+}
+
+h1 { color: var(--accent); font-weight: 700; margin-bottom: 20px; font-size: 2.5rem; margin-top: 0; }
+h2 { color: var(--text-main); margin-bottom: 30px; font-size: 1.5rem; }
+p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; }
+
+/* SEKCJE (Dla O Mnie) */
+.section-block {
+    margin-bottom: 50px; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(224, 221, 207, 0.1);
+}
+.section-block:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+
+/* LISTY */
+ul { list-style-type: none; padding: 0; margin: 20px 0; display: inline-block; text-align: center; }
+li { margin-bottom: 10px; color: var(--text-secondary); font-size: 1.05rem; }
+
+/* 4. FORMULARZE */
+form {
+    display: flex; flex-direction: column;
+    width: 100%; max-width: 500px;
+    margin: 30px auto 0 auto; text-align: left;
+}
+
+label {
+    margin-top: 20px; color: var(--accent);
+    font-weight: 600; font-size: 0.95rem; display: block;
+}
+
+input, select, textarea {
+    background-color: rgba(20, 20, 22, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main) !important;
+    padding: 15px;
+    border-radius: var(--radius-m);
+    font-size: 1rem;
+    margin-top: 8px;
+    font-family: inherit;
+    outline: none;
+    width: 100%; display: block; transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* NAPRAWA LISTY ROZWIJANEJ (Ciemne tło opcji) */
+select option {
+    background-color: #2c2c2e;
+    color: #f5f5f7;
+    padding: 15px;
+}
+
+/* 5. PRZYCISKI */
+button, .send-btn {
+    background-color: var(--accent);
+    color: #1c1c1e; /* Ciemny tekst na beżowym tle */
+    border: none;
+    padding: 15px 35px;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 30px;
+    display: block;
+    width: 100%;
+}
+
+button:hover, .send-btn:hover {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(224, 221, 207, 0.3);
+    transform: scale(1.02);
+}
+
+/* 6. GALERIA */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px; margin-top: 40px; text-align: left;
+}
+
+.project-card {
+    background-color: rgba(30, 30, 35, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-l);
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex; flex-direction: column;
+}
+
+.project-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+
+.placeholder-img {
+    width: 100%; height: 220px;
+    background-color: rgba(0,0,0,0.3); 
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.placeholder-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.project-card:hover img { transform: scale(1.05); }
+
+.card-info { padding: 25px; }
+.card-info h3 { margin: 0 0 10px 0; color: var(--text-main); font-size: 1.4rem; }
+.card-info p { color: var(--text-secondary); margin: 0; }
+
+/* 7. MODAL */
+.modal {
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    align-items: center; justify-content: center;
+}
+.modal.active { display: flex; }
+
+.modal-content {
+    background-color: #2c2c2e;
+    border: 1px solid var(--accent);
+    color: #fff; padding: 40px;
+    border-radius: var(--radius-l);
+    width: 90%; max-width: 700px;
+    position: relative; text-align: left;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+    max-height: 90vh; overflow-y: auto;
+}
+
+.close-btn {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 2rem; cursor: pointer; color: var(--text-secondary);
+}
+.close-btn:hover { color: var(--accent); }
+
+/* 8. STOPKA */
+footer {
+    text-align: center; padding: 30px;
+    color: rgba(255,255,255,0.2); flex-shrink: 0;
+}
+
+/* 9. IKONY SOFTWARE I USŁUGI (Z O-mnie) */
+.software-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px; justify-content: center; margin-top: 30px;
+    max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.soft-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 20px; background-color: rgba(255,255,255,0.03); border-radius: var(--radius-m);
+    transition: transform 0.3s, background-color 0.3s; cursor: default;
+}
+.soft-item:hover { transform: translateY(-5px); background-color: rgba(255,255,255,0.08); }
+.soft-item svg { width: 50px; height: 50px; fill: none; stroke: var(--accent); stroke-width: 2; margin-bottom: 15px; }
+.adobe-text { fill: var(--accent); stroke: none; font-family: Arial, sans-serif; font-weight: bold; font-size: 45px; }
+.soft-item span { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+
+.services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; text-align: left;
+}
+.service-item {
+    background-color: rgba(0,0,0,0.2); padding: 20px; border-radius: var(--radius-m);
+    border-left: 3px solid var(--accent);
+}
+.service-item strong { display: block; color: var(--text-main); margin-bottom: 5px; }
+.service-item span { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* 10. MOBILE */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; margin: 0; border-radius: 0; padding: 25px;
+        background-color: transparent; backdrop-filter: none; border: none; box-shadow: none;
+    }
+    nav { white-space: nowrap; overflow-x: auto; }
+    .gallery-grid, .software-grid, .services-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+    form { margin-top: 20px; }
+}
